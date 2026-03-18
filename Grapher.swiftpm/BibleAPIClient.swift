@@ -39,7 +39,7 @@ actor BibleAPIClient {
 
     /// Fetch a single verse or range, e.g. "John 3:16" or "Genesis 1:1-3".
     func fetchVerse(_ reference: String) async throws -> BibleAPIResponse {
-        let query = reference.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? reference
+        let query = reference.replacingOccurrences(of: " ", with: "+").lowercased()
         guard let url = URL(string: "\(baseURL)/\(query)") else {
             throw BibleAPIError.invalidReference(reference)
         }

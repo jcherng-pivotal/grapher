@@ -39,8 +39,9 @@ struct ContentView: View {
                             )
                             Text(edge.type.replacingOccurrences(of: "_", with: " ").capitalized)
                                 .font(.system(size: 10))
+                                .foregroundColor(.black)
                                 .padding(2)
-                                .background(Color.white.opacity(0.8))
+                                .background(Color.yellow.opacity(0.85))
                                 .cornerRadius(4)
                                 .position(midPoint)
                         }
@@ -60,10 +61,11 @@ struct ContentView: View {
                             Text(node.reference)
                                 .font(.caption)
                                 .bold()
+                                .foregroundColor(.black)
                                 .padding(4)
-                                .background(Color.white.opacity(0.9))
+                                .background(Color(red: 0.9, green: 0.95, blue: 1.0))
                                 .cornerRadius(6)
-                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.15), radius: 2, x: 0, y: 1)
                         }
                         .position(node.position)
                         .onTapGesture {
@@ -74,7 +76,7 @@ struct ContentView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color(white: 0.98))
+                .background(Color(red: 0.95, green: 0.95, blue: 0.97))
                 .cornerRadius(12)
                 .padding()
                 .overlay(alignment: .bottomTrailing) {
